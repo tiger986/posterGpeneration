@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>海报生成器</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="js/html2canvas.js"></script>  
+</head>
+<body>
+    <div class="box" ms-controller="createPoster">
+        <div class="imgBox" id="posterBox">
+            <img id="bg1" src="img/bg.png" alt="">
+            <div class="imgBox_box">
+                <div class="teaImg">
+                    <img ms-attr-src="imgSrc" alt="">
+                </div>
+                <div class="teaText">
+                    <img id="bg2" src="img/bg2.png" alt="">
+                    <div class="teaText_box">
+                        <p class="teaText_li_name" ms-html="name"></p>
+                        <p class="teaText_li_title" ms-html="title"></p>
+                        <p class="teaText_li_introduce" ms-html="introduce"></p>
+                        <p class="teaText_li_dynamic" ms-html="dynamic"></p>
+                        <p class="teaText_li_course" ms-html="course"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="iptBox">
+            <div class="iptBox_list">
+                <span>姓名</span>
+                <input type="text" ms-duplex="name" />
+            </div>
+            <div class="iptBox_list">
+                <span>职称</span>
+                <input type="text" ms-duplex="title" />
+            </div>
+            <div class="iptBox_list">
+                <span>介绍</span>
+                <textarea ms-duplex="introduce"></textarea>
+            </div>
+            <div class="iptBox_list">
+                <span>动态</span>
+                <textarea ms-duplex="dynamic"></textarea>
+            </div>
+            <div class="iptBox_list">
+                <span>课题</span>
+                <input type="text" ms-duplex="course"/>
+            </div>
+            <div class="iptBox_list">
+                <span>相片</span>
+                <div class="iptBox_list_photo" ms-slectfile>
+                    <img ms-attr-src="imgSrc" alt="">
+                </div>
+                <div>
+                    <input class="fileresource" name="fileresource" type="file" class="files" style="display: none">
+                </div>
+            </div>   
+            <div class="btn" ms-click="generate()">生成海报</div>   
+            <div class="btn"><a id="down1" class="down" href="" download="downImg">海报下载</a></div>      
+        </div>
+    </div>
+</body>
+
+<script>
+    require(['/index'], function (createPoster) {
+        avalon.directive("slectfile", {
+            init: function (binding) {
+                var elem = binding.element;
+                avalon(elem).bind("click", function () {
+                    $(this).next().html('<input class="fileresource" name="fileresource" type="file" class="files" style="display: none">');
+                    var inputf = $(this).next().find('.fileresource');
+                    inputf.bind('change', function (e) {   
+                        var iLen = this.files.length; 
+                        //console.log(this.files[0].name);
+                        for(var i=0;i<iLen;i++){  
+                            if (!this.files[0].name.match(/.jpg|.gif|.png|.jpeg|.bmp/i)){　　//判断上传文件格式    
+                                return alert("上传的图片格式不正确，请重新选择");    
+                            }  
+                            var reader = new FileReader();    
+                            reader.readAsDataURL(this.files[i]);  //转成base64    
+                            reader.fileName = this.files[i].name;                  
+                            reader.onload = function(e){    
+                                createPoster.imgSrc = this.result; 
+                                //console.log(this.result);  
+                            }    
+                        }  
+                    });
+
+                    inputf.click();
+                })
+            }
+        });
+        
+        //createPoster.getBase64("bg1");
+        //createPoster.getBase64("bg2");
+            
+        avalon.scan();
+    });
+</script>
+</html>

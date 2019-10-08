@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #f2f2f2;
+    overflow: hidden;
+}
+.imgBox{
+    width: 750px;
+    height: 1334px;
+    float: left;
+    position: relative;
+}
+.imgBox img{
+    display: block;
+    width: 750px;
+    height: 1334px;
+}
+.imgBox_box{
+    width: 750px;
+    height: 1334px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.teaImg{
+    width: 750px;
+    height: 1127px;
+    overflow: hidden;
+}
+.teaImg img{
+    display: block;
+    width: 750px;
+    height: 1334px;
+}
+.teaText{
+    width: 473px;
+    height: 679px;
+    position: absolute;
+    right: 15px;
+    bottom: 207px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+.teaText img{
+    display: block;
+    width: 473px;
+    height: 679px;
+}
+.teaText_box{
+    width: 473px;
+    height: 679px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/* .teaText p{
+    transform:rotate(1deg);
+    -ms-transform:rotate(1deg);
+    -moz-transform:rotate(1deg);
+    -webkit-transform:rotate(1deg);
+    -o-transform:rotate(1deg);
+} */
+.teaText_li_name{
+    width: 300px;
+    height: 60px;
+    font-size: 50px;
+    line-height: 60px;
+    margin: 22px 0 0 140px;
+}
+.teaText_li_title{
+    width: 300px;
+    height: 40px;
+    font-size: 30px;
+    line-height: 40px;
+    margin: 8px 0 0 133px;
+}
+.teaText_li_introduce{
+    width: 280px;
+    font-size: 22px;
+    line-height: 30px;
+    margin: 35px 0 0 119px;
+    text-indent: 6px;
+}
+.teaText_li_dynamic{
+    width: 285px;
+    font-size: 22px;
+    line-height: 30px;
+    margin: 15px 0 0 106px;
+    text-indent: 6px;
+}
+.teaText_li_course{
+    width: 285px;
+    height: 60px;
+    font-size: 50px;
+    line-height:60px;
+    position: absolute;
+    left: 40px;
+    bottom: 38px;
+}
+.iptBox{
+    width: 350px;
+    height: 1340px;
+    float: left;
+    margin-left: 100px;
+}
+.iptBox_list{
+    width: 100%;
+    overflow: hidden;
+}
+.iptBox_list span{
+    float: left;
+    width: 50px;
+    height: 38px;
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    line-height: 38px;
+    font-weight: bold;
+}
+.iptBox_list input{
+    float: left;
+    width: 250px;
+    height: 36px;
+    padding: 0 10px;
+    font-size: 16px;
+    color: #333333;
+    line-height: 36px;
+    border: 1px solid #999999;
+    border-radius: 4px;
+    outline: none;
+    background: none;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+.iptBox_list textarea{
+    float: left;
+    width: 250px;
+    height: 100px;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: #333333;
+    line-height: 20px;
+    border: 1px solid #999999;
+    border-radius: 4px;
+    outline: none;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    resize: none;
+    background: none;
+}
+.iptBox_list_photo{
+    width: 272px;
+    height: 470px;
+    float: left;
+    margin-left: 10px;
+    background-color: gray;
+}
+.iptBox_list_photo img{
+    display: block;
+    width: 272px;
+    height: 470px;
+}
+.btn{
+    width: 300px;
+    height: 40px;
+    background-color: #208eea;
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    margin: 40px auto 0;
+}
